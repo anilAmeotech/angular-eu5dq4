@@ -1,0 +1,29 @@
+<div *ngFor="let plotList of plotLists" >
+<div *ngFor="let plot of plotList;let i = index">
+    <div style="margin-left:15px;">{{plot.title}}</div> 
+    <kendo-chart 
+      [ngStyle]="{'height': (i !== plotList.length-1) ? '30px' : '50px'}" >       
+          <kendo-chart-series>
+            <kendo-chart-series-item type="bullet" [data]="plot.tyGoal" 
+            color="#ffff">
+            </kendo-chart-series-item>
+            <kendo-chart-value-axis>
+              <kendo-chart-value-axis-item [majorGridLines]="hidden" [minorTicks]="hidden"
+                                            [labels]="{ format: 'n'}"
+                                            [visible]="!(i !== plotList.length-1)"
+                                           [min]="0" [max]="plot.maxRange" [plotBands]="plot.plots">
+                                           <kendo-chart-value-axis-item-labels [content]="labelContent">
+                                            </kendo-chart-value-axis-item-labels>
+              </kendo-chart-value-axis-item>
+            </kendo-chart-value-axis>
+          </kendo-chart-series>
+          <kendo-chart-tooltip [shared]="true">
+              <ng-template kendoChartSeriesTooltipTemplate let-value="value">
+                {{plot.title}}  <br>
+                Goal: {{plot.goal|number}}, TY: {{plot.ty|number}}, LY: {{plot.ly |number}}
+              </ng-template>
+            </kendo-chart-tooltip>
+        </kendo-chart>  
+</div>
+
+</div>
