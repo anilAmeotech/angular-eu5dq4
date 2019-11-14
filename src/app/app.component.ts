@@ -7,12 +7,11 @@ import { samplesGoals } from './data';
     templateUrl: './result.html'
     })
 export class AppComponent {
-    plotList: any;
+    plotLists: any;
 
      constructor() {
      this.plotLists = samplesGoals;
 
-     console.log(this.plotList);
     }
 
     public labelContent = (e: any) => {
