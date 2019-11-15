@@ -4,7 +4,7 @@ import { samplesGoals } from './data';
 
 @Component({
     selector: 'my-app',
-    templateUrl: './result.html'
+    templateUrl: './app.component.html'
     })
 export class AppComponent {
     plotLists: any;
